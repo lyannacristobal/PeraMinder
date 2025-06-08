@@ -1,0 +1,139 @@
+﻿@{
+    Layout = "~/Views/Shared/_WhyUs.cshtml";
+}
+<nav class="navbar">
+    <!-- Left side: Logo as a button -->
+    <div class="navbar-left">
+        <a href="@Url.Action("Index", "Home")" style="display: flex; align-items: center; padding: 0; margin: 0;">
+            <img src="~/Content/FINAL - PeraMinder Logo.png" alt="Logo">
+        </a>
+        <div class="nav-links-left">
+            <a href="@Url.Action("Index", "Home")" style="font-weight: 700 !important;">HOME</a>
+            <a href="@Url.Action("WhyUs", "Home")" style="font-weight: 700 !important;">WHY US</a>
+            <a href="@Url.Action("Features", "Home")" style="font-weight: 700 !important;">FEATURES</a>
+            <a href="@Url.Action("ContactPage", "Home")" style="font-weight: 700 !important;">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Right side: Sign Up button -->
+    <a href="@Url.Action("RegistrationPage", "Home")" class="get-started" style="font-weight: 700 !important;">GET STARTED</a>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger-menu" ng-click="toggleMenu()">
+        <!-- Bind the click event -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</nav>
+
+<div class="full-container">
+    <header class="header">
+        <div class="container center-align">
+            <p class="white-text">WE TRACK EVERY CENT AND SAVE WITH A SMILE</p>
+            <h1 class="white-text">Save With Us</h1>
+        </div>
+    </header>
+
+    <section class="work-with-us">
+        <div class="container">
+            <div class="row">
+                <!-- Advisory Card -->
+                <div class="col s12 m3 l3">
+                    <div class="card collapsible">
+                        <div class="card-content center">
+                            <i class="material-icons circle">account_balance_wallet</i>
+                            <h5>Pera mo’y laging on track!</h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <p>This is some detailed information about Advisory services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Card -->
+                <div class="col s12 m3 l3">
+                    <div class="card collapsible">
+                        <div class="card-content center">
+                            <i class="material-icons circle">trending_up</i>
+                            <h5>Track, save, and see your pera grow!</h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <p>This is some detailed information about Development services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Planning Card -->
+                <div class="col s12 m3 l3">
+                    <div class="card collapsible">
+                        <div class="card-content center">
+                            <i class="material-icons circle">playlist_add_check</i>
+                            <h5>Pera mo, planado at safe!</h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <p>This is some detailed information about Planning services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategy Card -->
+                <div class="col s12 m3 l3">
+                    <div class="card collapsible">
+                        <div class="card-content center">
+                            <i class="material-icons circle">shield</i>
+                            <h5>Hindi na kailangan mag-alala sa pera!</h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <p>This is some detailed information about Strategy services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="vision-section">
+    <div class="vision-text">
+        <h1>Our Vision</h1>
+        <p>At Peraminder, we empower everyone to take control of their finances with ease, clarity, and confidence—dahil bawat piso ay mahalaga. <em>Wala nang stress, wala nang kalituhan!</em> Just simple, clear, and effective financial tracking that works for you. <br /><br />With every expense and goal in check, we help you stay on top of your finances, giving you the freedom to focus on what truly matters. Our goal is to guide you towards financial freedom, so you can live a happy, stress-free life, with your money working for you every step of the way.</p>
+    </div>
+    <div class="vision-image"></div>
+</section>
+
+<section class="mission-section">
+    <div class="mission-image"></div>
+    <div class="mission-text">
+        <h1>Our Mission</h1>
+        <p>At Peraminder, we aim to simplify financial management for everyone, making it easy to track, save, and grow your money. <em>Tulungan ka namin magtagumpay sa iyong financial journey!</em> With our tools and insights, we make managing your finances a breeze, so you can focus on living your best life. <br /><br />Our mission is to provide you with the tools, knowledge, and support to achieve financial stability and success, so you can live a life free of financial worries and full of possibilities.</p>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="logo-container">
+        <img src="~/Content/FINAL_FOOT.png" alt="Logo" class="logo"> <!-- Replace with your actual logo -->
+    </div>
+    <div class="links-container">
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">HOME</a></li>
+            <li><a href="@Url.Action("WhyUs", "Home")">WHY US</a></li>
+            <li><a href="@Url.Action("Features", "Home")">FEATURES</a></li>
+            <li><a href="@Url.Action("ContactPage", "Home")">CONTACTS</a></li>
+        </ul>
+    </div>
+    <ul class="privacy-policy">
+        <li>Privacy Policy</li>
+        <li>Terms of Use</li>
+    </ul>
+    <div class="social-media-container">
+        <img src="~/Content/socialmedia.png" alt="Facebook">
+        <img src="~/Content/4.png" alt="Instagram">
+        <img src="~/Content/5.png" alt="Twitter">
+    </div>
+
+</footer>
+
+<div class="copyright" style="background-color: #F5D547; width: 100%; text-align: center; padding: 1px 0; font-size: 0.8rem; margin-top: -2px;">
+    <i><p>&copy; 2024 PeraMinder. All Rights Reserved.</p></i>
+</div>

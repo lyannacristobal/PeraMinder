@@ -1,0 +1,163 @@
+﻿@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Navbar for smaller screens -->
+    <nav class="hide-on-large-only">
+        <div class="nav-wrapper">
+            <!-- Burger menu on the left -->
+            <a href="#" data-target="mobile-sidebar" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+            <!-- Centered logo -->
+            <a href="@Url.Action("Dashboard", "Home")" class="brand-logo center">
+                <img src="/Content/peraminder_nav.png" alt="Logo" class="responsive-img nav-logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <ul class="sidenav sidenav-fixed" id="sidebar">
+        <!-- Logo -->
+        <a href="@Url.Action("AdminDashboard", "Home")" class="logo-link">
+            <div class="logo">
+                <img src="/Content/peraminder_nav.png" style="background-color: transparent; transform: none; filter: none; cursor: default;" alt="Dashboard Logo">
+            </div>
+        </a>
+
+        <!-- Top links -->
+        <li>
+            <a href="@Url.Action("AdminDashboard", "Home")" class="waves-effect">
+                <img src="/Content/dashboard-icon.png" alt="Dashboard Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("UserManagement", "Home")" class="waves-effect">
+                <img src="/Content/users-icon.png" alt="Users Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Users
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AdminManagement", "Home")" class="waves-effect">
+                <img src="/Content/admin-icon.png" alt="Admin Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Admin
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("FeedbackManagement", "Home")" class="waves-effect">
+                <img src="~/Content/feedback-icon.png" alt="Feedback Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Feedback
+            </a>
+        </li>
+
+
+        <!-- Bottom links -->
+        <li>
+            <a ng-href="" ng-click="logoutFunc()" class="waves-effect">
+                <img src="/Content/logout-icon.png" alt="Logout Icon" style="width: 20px; margin-right: 8px; margin-top: 5px"> Log out
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="col s12 m9 offset-m3">
+    <div class="main-content">
+        <!-- Welcome Card -->
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content" style="background-color: #264027; border-radius: 10px; box-shadow: none !important;">
+                        <div class="row">
+                            <!-- Left Column -->
+                            <div class="col s12 m6">
+                                <p style="font-size: 14px; color: white; margin-left: 20px; margin-top:10px;">@DateTime.Now.ToString("MMMM dd, yyyy")</p>
+
+                                <br />
+                                <br />
+
+                                <h4 style="margin: 5px 0; margin-left: 20px; color: white; font-weight: 600;">Welcome back, Admin!</h4>
+                                <p style="font-size: 16px; color: white; margin-left: 20px;">Pamahalaan ang PeraMinder nang mas epektibo!</p>
+                            </div>
+                            <!-- Right Column -->
+                            <div class="col s12 m6">
+                                <img src="/Content/welcome-img.png" alt="Welcome Image" style="width: 72%; height: auto; object-fit: cover; margin-bottom: -50px; margin-top: -14px; margin-left: 180px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Statistics -->
+        <div class="row">
+            <div class="col s12 m6">
+                <h2 class="financial-health">PeraMinder Analytics</h2>
+                Kumusta ang PeraMinder?
+                <br />
+                <div class="row financial-health">
+                    <div class="col s4">
+                        <div class="card center-align">
+                            <i class="material-icons large" style="color: #264027;">people</i>
+                            <h5 style="font-size: 18px; font-weight: bold;">{{ totalUsers }}</h5>
+                            <p class="summary-label">User Count</p>
+                        </div>
+                    </div>
+                    <div class="col s4">
+                        <div class="card center-align">
+                            <i class="material-icons large" style="color: #264027;">work</i>
+                            <h5 style="font-size: 18px; font-weight: bold;">{{ totalAdmins }}</h5>
+                            <p class="summary-label">Admin Count</p>
+                        </div>
+                    </div>
+                    <div class="col s4">
+                        <div class="card center-align">
+                            <i class="material-icons large" style="color: #264027;">feedback</i>
+                            <h5 style="font-size: 18px; font-weight: bold;">{{ totalFeedbacks }}</h5>
+                            <p class="summary-label">Feedback Count</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <!-- User Growth Chart -->
+                <h2 class="financial-health">User Growth</h2>
+                Sundan ang paglago ng PeraMinder!
+                <div class="card">
+
+                    <div class="card-content">
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Feedback and Growth Analysis -->
+            <div class="col s12 m6">
+
+                <!-- Admin-to-User Ratio -->
+                <h2 class="financial-health">Admin-to-User Ratio</h2>
+                Tingnan ang bilang ng admin kumpara sa users!
+                <div class="card">
+
+
+                    <div class="card-content">
+                        <canvas id="adminUserRatioChart"></canvas>
+                    </div>
+
+
+                </div>
+
+                <br />
+                <h2 class="financial-health">Feedback Growth</h2>
+Tignan ang daloy ng feedback!
+                <br />
+                <div class="card">
+                    <div class="card-content">
+                        <canvas id="feedbackGrowthChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

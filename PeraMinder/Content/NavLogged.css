@@ -1,0 +1,65 @@
+﻿body {
+    font-family: Poppins, sans-serif;
+    background-color: white; /* Light gray background */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+/* Sidebar Styles */
+.sidenav {
+    background-color: #264027; /* Sidebar color */
+    height: 95% !important;
+    padding-top: 20px;
+    width: 220px;
+    !important;
+    margin-top: 18px;
+    margin-left: 18px;
+    border-radius: 18px;
+}
+
+    .sidenav a {
+        font-size: 13px !important; /* Smaller font size */
+        font-weight: 300; /* Lighter font weight */
+        padding: 6px 8px; /* Reduce padding */
+        margin: 2px 8px; /* Adjust margin */
+        color: white !important;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .sidenav a img:not(.logo img) {
+            margin-right: 8px; /* Adjust spacing between image and text */
+            margin-bottom: -5px; /* Add margin at the top of the image */
+            width: 18px !important; /* Set a consistent image size */
+        }
+
+
+    .sidenav .logo {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+        .sidenav .logo img {
+            max-width: 180px;
+            margin-top: 30px;
+            margin-left: 6px;
+            margin-bottom: 40px;
+        }
+
+    .sidenav .bottom-links {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+    }
+
+        .sidenav .bottom-links li {
+            margin-top: 10px;
+        }
+/*Main Content*/
+
+.col.s12.m9.offset-m3 {
+    margin-left: 270px !important; /* Decrease this value to adjust left margin */
+    width: 80%;
+}

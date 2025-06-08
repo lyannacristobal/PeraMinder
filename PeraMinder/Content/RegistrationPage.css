@@ -1,0 +1,281 @@
+﻿/* Body styling */
+/* Prevent scrolling */
+html, body {
+    height: 100vh; /* Ensure the body takes up full height of the viewport */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    box-sizing: border-box;
+}
+
+/* Registration container to hold both the image and form */
+.registration-container {
+    margin-top: -52px;
+    display: flex;
+    height: 100vh; /* Full screen height */
+    justify-content: space-between; /* Ensure both sections take equal width */
+    align-items: center; /* Vertically center content */
+}
+
+/* Left image panel */
+.image-container {
+    width: 50%; /* Set to 50% to match form width */
+    height: 100%; /* Full height of the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow to maintain aspect ratio */
+    position: relative; /* Ensure shadow is applied correctly */
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.3); /* Right side shadow */
+}
+
+    .image-container img {
+        width: 100%; /* Ensure image fills the container width */
+        height: 100%; /* Ensure image fills the container height */
+        object-fit: cover; /* Cover the container while maintaining aspect ratio */
+        object-position: left; /* Align image to the left */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+    }
+
+    .image-container p {
+        font-family: Poppins, sans-serif;
+        position: absolute; /* Position text relative to the container */
+        color: white; /* White text color to contrast with the image */
+        font-size: 1.6rem; /* Adjust font size */
+        text-align: center; /* Center the text horizontally */
+        z-index: 10; /* Ensure text is above the image */
+        margin: 0;
+        padding: 0;
+        font-weight: 600;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 1); /* Subtle shadow effect */
+    }
+
+/* Right form panel */
+.form-container {
+    width: 50%; /* Set to 50% to match image width */
+    height: 100%;
+    padding: 20px;
+    background-color: #ffffff; /* Light background for the form area */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-content-wrapper {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+    /* Form heading and description */
+    .form-content-wrapper h2 {
+        font-weight: 700;
+        font-size: 2rem;
+        color: #264027 !important;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding text shadow */
+    }
+
+    .form-content-wrapper p {
+        font-size: 1rem;
+        font-weight: 400 !important;
+        color: #264027;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+
+/* Input fields */
+.input-field {
+    margin-bottom: -5px !important;
+}
+
+    .input-field label {
+        font-size: small !important;
+        font-weight: 400;
+        color: gray !important;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+        /* Adding the red asterisk for required fields */
+        .input-field label.required::after {
+            content: " *";
+            color: red;
+        }
+
+    /* Input styling */
+    .input-field input {
+        font-family: Poppins, sans-serif;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        color: #011627;
+    }
+
+        .input-field input:focus {
+            outline: none;
+            border-color: #A71D31 !important;
+        }
+
+input[type="date"] {
+    color: transparent;
+    border-color: gray !important;
+    font-style: italic; /* Italicize the placeholder */
+}
+
+    /* Style when the input is focused (clicked) */
+    input[type="date"]:focus {
+        color: #011627; /* Change text color when clicked */
+        outline: none; /* Remove default outline on focus */
+    }
+
+/* Password strength display */
+.password-strength {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons vertically (optional if needed) */
+    gap: 25px; /* Adds space between the buttons */
+    margin-top: 30px; /* Adds some space above the buttons */
+}
+
+.btn {
+    display: flex; /* Use flexbox for content alignment */
+    height: 45px !important; /* Set a fixed height */
+    align-items: center !important; /* Center content vertically */
+    justify-content: center !important; /* Center content horizontally */
+    font-family: Poppins, sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    border: none;
+    border-radius: 25px !important;
+    cursor: pointer;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Simple text shadow for emphasis */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3) !important; /* Box shadow for a subtle depth effect */
+}
+
+.signup-btn {
+    background-color: #F5D547 !important;
+    color: #ffffff !important;
+    width: 2000px; /* Set a consistent button width */
+}
+
+    .signup-btn:hover {
+        color: #264027;
+        background-color: #F8E36D !important;
+        transform: scale(1.1); /* Zoom effect */
+        transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+    }
+
+.cancel-btn {
+    background-color: #A71D31 !important;
+    color: white;
+    width: 50px; /* Set a fixed width */
+    display: flex; /* Enable flexbox */
+    align-items: center !important; /* Center icon vertically */
+    justify-content: center !important; /* Center icon horizontally */
+}
+
+    .cancel-btn:hover {
+        background-color: #D24358 !important;
+        transform: scale(1.1); /* Zoom effect */
+        transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+    }
+
+    .cancel-btn i {
+        display: inline-block; /* Ensure proper block positioning for margin adjustment */
+        margin-top: 4px;
+        line-height: 1; /* Prevent extra spacing inside the button */
+    }
+
+/* Sign-in redirect container */
+.sign-in-redirect {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+    /* Sign-in text */
+    .sign-in-redirect p {
+        font-size: 0.9rem;
+        color: #264027;
+    }
+
+    /* Link styling */
+    .sign-in-redirect .sign-in-link {
+        color: #A71D31; /* Highlight color for the link */
+        font-weight: 700; /* Make the link bold */
+        text-decoration: none; /* Remove underline */
+    }
+
+        .sign-in-redirect .sign-in-link:hover {
+            color: #D24358 !important;
+            text-decoration: underline;
+            transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+        }
+
+/* Responsive design */
+@media screen and (max-width: 1200px) {
+    .form-container {
+        width: 50%; /* Full width of the container */
+        padding: 30px;
+    }
+
+    .form-content-wrapper {
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html, body {
+        overflow-y: auto; /* Enable scrolling */
+        height: auto; /* Allow content to overflow and be scrollable */
+    }
+
+    .registration-container {
+        flex-direction: column; /* Stack image and form vertically on smaller screens */
+    }
+
+    .image-container {
+        width: 100%; /* Full width of the container */
+        height: 30vh; /* Image takes 30% of the screen height */
+        margin-bottom: 40px;
+        margin-top: 52px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Bottom shadow */
+    }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1); /* Scale the image to make it appear bigger */
+            object-position: center; /* Center the image */
+        }
+
+    .form-container {
+        width: 100%; /* Full width of the container */
+        height: 70vh; /* Form takes 70% of the screen height */
+    }
+
+    .form-content-wrapper {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .image-container {
+        height: 80vh; /* Adjust image height for smaller screens */
+    }
+
+    .form-container {
+        height: auto; /* Allow form to expand with content */
+        padding: 15px;
+    }
+}
+

@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<nav class="navbar">
+    <!-- Left side: Logo as a button -->
+    <div class="navbar-left">
+        <a href="@Url.Action("Index", "Home")" style="display: flex; align-items: center; padding: 0; margin: 0;">
+            <img src="~/Content/FINAL - PeraMinder Logo.png" alt="Logo">
+        </a>
+        <div class="nav-links-left">
+            <a href="@Url.Action("Index", "Home")" style="font-weight: 700 !important;">HOME</a>
+            <a href="@Url.Action("WhyUs", "Home")" style="font-weight: 700 !important;">WHY US</a>
+            <a href="@Url.Action("Features", "Home")" style="font-weight: 700 !important;">FEATURES</a>
+            <a href="@Url.Action("ContactPage", "Home")" style="font-weight: 700 !important;">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger-menu" ng-click="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</nav>
+
+<div class="registration-container" ng-app="PeraMinderApp" ng-controller="PeraMinderController">
+    <!-- Right Form Panel (now moved to the left) -->
+    <div class="form-container">
+        <div class="form-content-wrapper">
+            <h2>Login</h2>
+            <form ng-submit="loginFunc()">
+                <!-- Email -->
+                <div class="input-field">
+                    <label for="email" class="required">Email</label>
+                    <input id="email" type="email" ng-model="username" required>
+                </div>
+
+                <!-- Password -->
+                <div class="input-field">
+                    <label for="password" class="required">Password</label>
+                    <input id="password" type="password" ng-model="uPassword" required>
+                    <i class="material-icons toggle-password"
+                       style="position: absolute; right: 3px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 19px; color: gray;"
+                       onclick="togglePasswordVisibility('password', this)">visibility</i>
+                </div>
+
+                <!-- Button Container -->
+                <div class="button-container">
+                    <button class="btn signup-btn" type="button" ng-click="loginFunc()">
+                        Login
+                        <i class="material-icons right">send</i>
+                    </button>
+                    <button class="btn cancel-btn" type="button" ng-click="cancelFunc()">
+                        <i class="material-icons">cancel</i>
+                    </button>
+                </div>
+
+                <!-- Sign Up Redirect -->
+                <div class="sign-in-redirect">
+                    <p>
+                        Don't have an account?
+                        <a href="@Url.Action("RegistrationPage", "Home")" class="sign-in-link">Sign Up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Left Image Panel (now moved to the right) -->
+    <div class="image-container">
+        <img src="~/Content/LoginBG.png" alt="Registration Image">
+        <p>Log in to <em>PeraMinder</em> and <br />take charge of your finances!</p>
+    </div>
+</div>
+
+<footer id="footer">
+    <div class="logo-container">
+        <img src="~/Content/FINAL_FOOT.png" alt="Logo" class="logo"> <!-- Replace with your actual logo -->
+    </div>
+    <div class="links-container">
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">HOME</a></li>
+            <li><a href="@Url.Action("WhyUs", "Home")">WHY US</a></li>
+            <li><a href="@Url.Action("Features", "Home")">FEATURES</a></li>
+            <li><a href="@Url.Action("ContactPage", "Home")">CONTACTS</a></li>
+        </ul>
+    </div>
+    <ul class="privacy-policy">
+        <li>Privacy Policy</li>
+        <li>Terms of Use</li>
+    </ul>
+    <div class="social-media-container">
+        <img src="~/Content/socialmedia.png" alt="Facebook">
+        <img src="~/Content/4.png" alt="Instagram">
+        <img src="~/Content/5.png" alt="Twitter">
+    </div>
+
+</footer>
+
+<div class="copyright" style="background-color: #F5D547; width: 100%; text-align: center; padding: 1px 0; font-size: 0.8rem; margin-top: -2px;">
+    <i><p>&copy; 2024 PeraMinder. All Rights Reserved.</p></i>
+</div>
+
+

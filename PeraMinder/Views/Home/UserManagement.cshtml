@@ -1,0 +1,151 @@
+﻿@{
+    Layout = "~/Views/Shared/_ManagementLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Navbar for smaller screens -->
+    <nav class="hide-on-large-only">
+        <div class="nav-wrapper">
+            <!-- Burger menu on the left -->
+            <a href="#" data-target="mobile-sidebar" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+            <!-- Centered logo -->
+            <a href="@Url.Action("Dashboard", "Home")" class="brand-logo center">
+                <img src="/Content/peraminder_nav.png" alt="Logo" class="responsive-img nav-logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <ul class="sidenav sidenav-fixed" id="sidebar">
+        <!-- Logo -->
+        <a href="@Url.Action("AdminDashboard", "Home")" class="logo-link">
+            <div class="logo">
+                <img src="/Content/peraminder_nav.png" style="background-color: transparent; transform: none; filter: none; cursor: default;" alt="Dashboard Logo">
+            </div>
+        </a>
+
+        <!-- Top links -->
+        <li>
+            <a href="@Url.Action("AdminDashboard", "Home")" class="waves-effect">
+                <img src="/Content/dashboard-icon.png" alt="Dashboard Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("UserManagement", "Home")" class="waves-effect">
+                <img src="/Content/users-icon.png" alt="Users Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Users
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AdminManagement", "Home")" class="waves-effect">
+                <img src="/Content/admin-icon.png" alt="Admin Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Admin
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("FeedbackManagement", "Home")" class="waves-effect">
+                <img src="~/Content/feedback-icon.png" alt="Feedback Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Feedback
+            </a>
+        </li>
+
+
+        <!-- Bottom links -->
+        <li>
+            <a ng-href="" ng-click="logoutFunc()" class="waves-effect">
+                <img src="/Content/logout-icon.png" alt="Logout Icon" style="width: 20px; margin-right: 8px; margin-top: 5px"> Log out
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <br />
+    <br />
+
+    <!-- User Management Content -->
+    <div class="container mt-4">
+        <h3><b>User List</b></h3>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><b>Add User</b></a>
+        <table id="myTable" class="display custom-table" datatable>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{ user.fName }}</td>
+                    <td>{{ user.lName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.createdAt | date:'medium' }}</td>
+                    <td>
+                        <a href="#" class="waves-effect waves-light btn" ng-click="editUser(user)">Edit</a>
+                        <a href="#" class="modal-close waves-effect btn custom-cancel-btn" ng-click="deleteUser(user.userID)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Modal Structure for Add User -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Create User</h4>
+        <form>
+            <div class="input-field col s12">
+                <input id="userFName" type="text" ng-model="fName" class="circular-input" required />
+                <label for="userFName">First Name <span style="color: red;">*</span></label>
+            </div>
+            <div class="input-field col s12">
+                <input id="userLName" type="text" ng-model="lName" class="circular-input" required />
+                <label for="userLName">Last Name <span style="color: red;">*</span></label>
+            </div>
+            <div class="input-field col s12">
+                <input id="userEmail" type="email" ng-model="email" class="circular-input" required />
+                <label for="userEmail">Email <span style="color: red;">*</span></label>
+            </div>
+            <div class="input-field col s12">
+                <input id="userPassword" type="password" ng-model="password" class="circular-input" required />
+                <label for="userPassword">Password <span style="color: red;">*</span></label>
+            </div>
+            <div class="input-field col s12">
+                <input id="confirmPassword" type="password" ng-model="confirmPassword" class="circular-input" required />
+                <label for="confirmPassword">Confirm Password <span style="color: red;">*</span></label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="waves-effect waves-light btn" ng-click="addUser()">Submit</a>
+        <a href="#" class="modal-close waves-effect btn custom-cancel-btn">Cancel</a>
+    </div>
+</div>
+
+<!-- Modal Structure for Edit User -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Edit User</h4>
+        <form>
+            <input type="hidden" ng-model="editUserID" /> <!-- Hidden userID -->
+            <div class="input-field col s12">
+                <input id="editFName" type="text" ng-model="editFName" class="circular-input" required />
+                <label for="editFName">First Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="editLName" type="text" ng-model="editLName" class="circular-input" required />
+                <label for="editLName">Last Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="editEmail" type="email" ng-model="editEmail" class="circular-input" required />
+                <label for="editEmail">Email</label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="waves-effect waves-light btn" ng-click="updateUser()">Save</a>
+        <a href="#" class="modal-close waves-effect btn custom-cancel-btn">Cancel</a>
+    </div>
+</div>

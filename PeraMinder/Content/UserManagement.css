@@ -1,0 +1,25 @@
+﻿.main-content {
+    margin-left: 144px; /* Reduced margin-left */
+    width: calc(100% - 50px); /* Decreased width for the main content */
+}
+
+/* Spacing Between Fields */
+.input-field {
+    margin-bottom: 20px; /* Add spacing between form fields */
+}
+
+/* Modal Footer Spacing */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Add spacing between buttons */
+}
+.modal-content {
+    margin-top: 20px; /* Adjust top margin */
+}
+
+/* Add margin to input fields */
+.input-field {
+    margin-top: 15px; /* Space between fields */
+}
+

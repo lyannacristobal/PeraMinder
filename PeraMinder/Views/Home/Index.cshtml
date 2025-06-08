@@ -1,0 +1,148 @@
+﻿@{
+    Layout = "~/Views/Shared/_LandingLayout.cshtml";
+}
+
+<nav class="navbar">
+    <!-- Left side: Logo as a button -->
+    <div class="navbar-left">
+        <a href="@Url.Action("Index", "Home")" style="display: flex; align-items: center; padding: 0; margin: 0;">
+            <img src="~/Content/FINAL - PeraMinder Logo.png" alt="Logo">
+        </a>
+        <div class="nav-links-left">
+            <a href="@Url.Action("Index", "Home")" style="font-weight: 700 !important;">HOME</a>
+            <a href="@Url.Action("WhyUs", "Home")" style="font-weight: 700 !important;">WHY US</a>
+            <a href="@Url.Action("Features", "Home")" style="font-weight: 700 !important;">FEATURES</a>
+            <a href="@Url.Action("ContactPage", "Home")" style="font-weight: 700 !important;">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Right side: Sign Up button -->
+    <a href="@Url.Action("RegistrationPage", "Home")" class="get-started" style="font-weight: 700 !important;">GET STARTED</a>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger-menu" ng-click="toggleMenu()">
+        <!-- Bind the click event -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</nav>
+
+<!-- 1st Section of Landing Page -->
+<section class="landing-page">
+    <div class="landing-left">
+        <h1 class="landing-title">Bawat Piso, <br />May Kwento!</h1>
+        <p class="landing-subtitle">Whether you’re learning to budget, planning for your dreams, or taking the first step towards investment, it all starts here. Let’s turn your financial story into one of <b>success, growth, and empowerment.</b></p>
+        <a href="@Url.Action("RegistrationPage", "Home")" style="font-weight: 700 !important;" class="get-started">TARA NA!</a>
+    </div>
+    <div class="landing-right">
+        <img src="~/Content/Landing-Img1.png" alt="Financial Journey">
+    </div>
+</section>
+<br />
+<!-- 2nd Section of Landing Page -->
+<section class="vision-section">
+    <!-- Image Gallery (Accordion) -->
+    <div class="image-gallery">
+        <div class="image-carousel">
+            <img src="~/Content/Landing-Galle1.png" alt="Gallery Image 1">
+            <img src="~/Content/Landing-Galle2.png" alt="Gallery Image 2">
+            <img src="~/Content/Landing-Galle3.png" alt="Gallery Image 3">
+            <img src="~/Content/Landing-Galle4.png" alt="Gallery Image 4">
+            <img src="~/Content/Landing-Galle5.png" alt="Gallery Image 5">
+            <img src="~/Content/Landing-Galle1.png" alt="Gallery Image 1">
+            <img src="~/Content/Landing-Galle2.png" alt="Gallery Image 2">
+            <img src="~/Content/Landing-Galle3.png" alt="Gallery Image 3">
+            <img src="~/Content/Landing-Galle4.png" alt="Gallery Image 4">
+            <img src="~/Content/Landing-Galle5.png" alt="Gallery Image 5">
+            <img src="~/Content/Landing-Galle1.png" alt="Gallery Image 1">
+            <img src="~/Content/Landing-Galle2.png" alt="Gallery Image 2">
+            <img src="~/Content/Landing-Galle3.png" alt="Gallery Image 3">
+            <img src="~/Content/Landing-Galle4.png" alt="Gallery Image 4">
+            <img src="~/Content/Landing-Galle5.png" alt="Gallery Image 5">
+            <img src="~/Content/Landing-Galle1.png" alt="Gallery Image 1">
+            <img src="~/Content/Landing-Galle2.png" alt="Gallery Image 2">
+            <img src="~/Content/Landing-Galle3.png" alt="Gallery Image 3">
+            <img src="~/Content/Landing-Galle4.png" alt="Gallery Image 4">
+            <img src="~/Content/Landing-Galle5.png" alt="Gallery Image 5">
+            <img src="~/Content/Landing-Galle1.png" alt="Gallery Image 1">
+            <img src="~/Content/Landing-Galle2.png" alt="Gallery Image 2">
+            <img src="~/Content/Landing-Galle3.png" alt="Gallery Image 3">
+            <img src="~/Content/Landing-Galle4.png" alt="Gallery Image 4">
+            <img src="~/Content/Landing-Galle5.png" alt="Gallery Image 5">
+            <img src="~/Content/Landing-Galle1.png" alt="Gallery Image 1">
+            <img src="~/Content/Landing-Galle2.png" alt="Gallery Image 2">
+            <img src="~/Content/Landing-Galle3.png" alt="Gallery Image 3">
+            <img src="~/Content/Landing-Galle4.png" alt="Gallery Image 4">
+            <img src="~/Content/Landing-Galle5.png" alt="Gallery Image 5">
+
+        </div>
+    </div>
+
+    <div class="vision-content">
+        <h2 class="vision-title" style=" color: #264027 !important; "><b>Uncover the Vision Behind PeraMinder</b></h2>
+        <p class="vision-subtitle" style="font-size: 1.1rem; color: #011627; margin-bottom: 20px;">PeraMinder is more than just a financial tool—it’s your partner in building a brighter financial future. We’re here to help you track, manage, and grow your money, so you can make confident, informed decisions every day.</p>
+        <a href="@Url.Action("Features", "Home")" class="get-to-know-us"><b>GET TO KNOW US</b></a>
+    </div>
+</section>
+
+
+<!-- 3rd Section of Landing Page -->
+<section class="features-section">
+    <div class="features-background">
+        <img src="~/Content/Landing-BG2.png" alt="Background Image">
+    </div>
+    <div class="features-container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h2 class="section-title"><b>Why You'll Love PeraMinder</b></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="material-icons feature-icon" style="font-size: 70px;">account_balance_wallet</i> <!-- Materialize icon for Expense Tracking -->
+                <h3 class="feature-heading">All-in-One Tracker</h3>
+                <p>Manage expenses, savings, and budgets in one place.</p>
+            </div>
+            <div class="feature-card">
+                <i class="material-icons feature-icon" style="font-size: 70px;">school</i> <!-- Materialize icon for Empowering Financial Literacy -->
+                <h3 class="feature-heading">Empowers Financial Literacy</h3>
+                <p>Helps bridge the knowledge gap in managing money.</p>
+            </div>
+            <div class="feature-card">
+                <i class="material-icons feature-icon" style="font-size: 70px;">show_chart</i> <!-- Materialize icon for Savings Goals -->
+                <h3 class="feature-heading">Simple and Intuitive</h3>
+                <p>Easily track your finances without the hassle.</p>
+            </div>
+        </div>
+        <br />
+        <a href="@Url.Action("Features", "Home")" class="learn-more"><b>DISCOVER MORE FEATURES</b></a>
+    </div>
+</section>
+<footer id="footer">
+    <div class="logo-container">
+        <img src="~/Content/FINAL_FOOT.png" alt="Logo" class="logo"> <!-- Replace with your actual logo -->
+    </div>
+    <div class="links-container">
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">HOME</a></li>
+            <li><a href="@Url.Action("WhyUs", "Home")">WHY US</a></li>
+            <li><a href="@Url.Action("Features", "Home")">FEATURES</a></li>
+            <li><a href="@Url.Action("ContactPage", "Home")">CONTACTS</a></li>
+        </ul>
+    </div>
+    <ul class="privacy-policy">
+        <li>Privacy Policy</li>
+        <li>Terms of Use</li>
+    </ul>
+    <div class="social-media-container">
+        <img src="~/Content/socialmedia.png" alt="Facebook">
+        <img src="~/Content/4.png" alt="Instagram">
+        <img src="~/Content/5.png" alt="Twitter">
+    </div>
+
+</footer>
+
+<div class="copyright" style="background-color: #F5D547; width: 100%; text-align: center; padding: 1px 0; font-size: 0.8rem; margin-top: -2px;">
+    <i><p>&copy; 2024 PeraMinder. All Rights Reserved.</p></i>
+</div>

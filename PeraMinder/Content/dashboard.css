@@ -1,0 +1,135 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+
+/* Card Styling */
+.welcome-card {
+    background-color: #264027 !important;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: none !important; /* Remove the shadow */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+    /* Left Column Styling */
+    .welcome-card .left-column {
+        font-family: 'Poppins', sans-serif;
+        color: white; /* Neutral text color */
+    }
+
+        .welcome-card .left-column .date {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 5px;
+        }
+
+        .welcome-card .left-column .heading {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 5px 0;
+            color: white; /* Slightly darker text for the heading */
+        }
+
+        .welcome-card .left-column .subtext {
+            font-size: 16px;
+            color: white;
+        }
+
+    /* Right Column Styling */
+    .welcome-card .right-column img {
+        width: 55% !important; /* Full width of the column */
+        height: auto;
+        margin-top:-20px;
+        margin-bottom: -40px;
+        object-fit: cover; /* Ensures the image maintains aspect ratio */
+    }
+
+.btn-group {
+    display: flex;
+    justify-content: flex-start; /* Align the buttons to the left */
+    margin: 10px 0;
+}
+.summary-buttons .summary-btn {
+    width: 150px !important;
+    height: 30px !important;
+    background-color: #FFCA28 !important;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif !important;
+    color: white !important;
+    font-weight: bold !important;
+    margin: 0 5px !important;
+    padding: 10px 20px !important;
+    text-transform: capitalize !important;
+    border-radius: 20px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+    .summary-buttons .summary-btn:hover {
+        background-color: #FFC107 !important;
+        color: white !important;
+    }
+
+/* Style for Financial Health text */
+.financial-health {
+    font-size: 18px; /* Enlarges the font size */
+    font-family: 'Poppins', sans-serif; /* Ensure Poppins is applied if needed */
+    margin-top: -8px;
+    font-weight: bold; /* Makes the text bold */
+
+    margin-bottom: -1px;
+}
+
+    .financial-health .card {
+        padding: 10px !important;
+        border-radius: 10px !important;
+
+        background-color: white !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        text-align: center !important;
+    }
+
+    .financial-health .summary-label {
+        font-size: 14px !important;
+        font-weight: normal;
+        color: #757575 !important;
+        margin-top: 10px !important;
+    }
+
+/* Add rounded corners to all cards */
+.card {
+    border-radius: 10px;
+}
+
+/* Adjust chart height specifically for right-side charts */
+#incomeExpenseChart,
+#adminUserRatioChart {
+    height: 300px !important; /* Ensure the height is applied */
+    width: 300px !important;
+}
+
+/* Optional: Ensure the charts maintain responsiveness */
+canvas {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+#categoryTrendsChart {
+    height: 290px !important;
+    width: 500px !important;
+}
+
+#expenseBreakdownChart,
+#userGrowthChart {
+    height: 420px !important; /* Ensure the height is applied */
+    width: 500px !important;
+}
+
+
+
+#feedbackUserGrowthChart {
+    height: 263px !important;
+    width: 500px !important;
+}

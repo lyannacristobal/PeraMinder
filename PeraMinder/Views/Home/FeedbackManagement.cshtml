@@ -1,0 +1,145 @@
+﻿@{
+    Layout = "~/Views/Shared/_ManagementLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Navbar for smaller screens -->
+    <nav class="hide-on-large-only">
+        <div class="nav-wrapper">
+            <!-- Burger menu on the left -->
+            <a href="#" data-target="mobile-sidebar" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+            <!-- Centered logo -->
+            <a href="@Url.Action("Dashboard", "Home")" class="brand-logo center">
+                <img src="/Content/peraminder_nav.png" alt="Logo" class="responsive-img nav-logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <ul class="sidenav sidenav-fixed" id="sidebar">
+        <!-- Logo -->
+        <a href="@Url.Action("AdminDashboard", "Home")" class="logo-link">
+            <div class="logo">
+                <img src="/Content/peraminder_nav.png" style="background-color: transparent; transform: none; filter: none; cursor: default;" alt="Dashboard Logo">
+            </div>
+        </a>
+
+        <!-- Top links -->
+        <li>
+            <a href="@Url.Action("AdminDashboard", "Home")" class="waves-effect">
+                <img src="/Content/dashboard-icon.png" alt="Dashboard Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("UserManagement", "Home")" class="waves-effect">
+                <img src="/Content/users-icon.png" alt="Users Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Users
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AdminManagement", "Home")" class="waves-effect">
+                <img src="/Content/admin-icon.png" alt="Admin Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Admin
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("FeedbackManagement", "Home")" class="waves-effect">
+                <img src="~/Content/feedback-icon.png" alt="Feedback Icon" style="width: 20px; margin-right: 8px; margin-top: 5px;"> Feedback
+            </a>
+        </li>
+
+
+        <!-- Bottom links -->
+        <li>
+            <a ng-href="" ng-click="logoutFunc()" class="waves-effect">
+                <img src="/Content/logout-icon.png" alt="Logout Icon" style="width: 20px; margin-right: 8px; margin-top: 5px"> Log out
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="main-content">
+    <br />
+    <br />
+
+    <!-- Feedback Management Content -->
+
+
+    <div class="container mt-4">
+        <h3><b>Feedback List</b></h3>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><b>Add Feedback</b></a>
+        <table id="feedbackTable" class="display custom-table" datatable>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Submitted At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="feedback in feedbacks">
+                    <td>{{ feedback.fullName }}</td>
+                    <td>{{ feedback.email }}</td>
+                    <td>{{ feedback.message }}</td>
+                    <td>{{ feedback.createdAt | date:'medium' }}</td>
+                    <td>
+                        <a href="#" class="waves-effect waves-light btn" ng-click="editFeedback(feedback)">Edit</a>
+                        <a href="#" class="modal-close waves-effect btn custom-cancel-btn" ng-click="deleteFeedback(feedback.feedbackID)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" aria-hidden="false">
+    <div class="modal-content">
+        <h4 class="center-align">Add Feedback</h4>
+        <form>
+            <div class="input-field col s12">
+                <input id="fullName" type="text" ng-model="feedback.fullName" class="circular-input" required />
+                <label for="fullName">Full Name <span style="color: red;">*</span></label>
+            </div>
+            <div class="input-field col s12">
+                <input id="email" type="email" ng-model="feedback.email" class="circular-input" required />
+                <label for="email">Email <span style="color: red;">*</span></label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="message" class="materialize-textarea circular-textarea" ng-model="feedback.message" required></textarea>
+                <label for="message">Message <span style="color: red;">*</span></label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="waves-effect waves-light btn" ng-click="addFeedback()"><b>Submit</b></a>
+        <a href="#" class="modal-close waves-effect btn custom-cancel-btn">Cancel</a>
+    </div>
+</div>
+
+<!-- Modal Structure for Edit Feedback -->
+<div id="editFeedbackModal" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Edit Feedback</h4>
+        <form>
+            <div class="input-field col s12">
+                <input id="editFullName" type="text" ng-model="selectedFeedback.fullName" class="circular-input" required />
+                <label for="editFullName" class="active">Full Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="editEmail" type="email" ng-model="selectedFeedback.email" class="circular-input" required />
+                <label for="editEmail" class="active">Email</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="editMessage" class="materialize-textarea circular-textarea" ng-model="selectedFeedback.message" required></textarea>
+                <label for="editMessage" class="active">Message</label>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="waves-effect waves-light btn" ng-click="updateFeedback()"><b>Update</b></a>
+        <a href="#" class="modal-close waves-effect btn custom-cancel-btn">Cancel</a>
+    </div>
+</div>

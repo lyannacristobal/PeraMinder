@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/Content/materialize.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/LoginPage.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/landing-navbar.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Scripts/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body ng-app="PeraMinder" ng-controller="PeraMinderController">
+    <div>
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/AngularScripts/Module.js"></script>
+    <script src="~/Scripts/AngularScripts/Service.js"></script>
+    <script src="~/Scripts/AngularScripts/Controller.js"></script>
+
+    <script>
+        function togglePasswordVisibility(fieldId, icon) {
+            const passwordField = document.getElementById(fieldId);
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text'; // Show the password
+                icon.textContent = 'visibility_off'; // Change icon
+            } else {
+                passwordField.type = 'password'; // Hide the password
+                icon.textContent = 'visibility'; // Revert icon
+            }
+        }</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿@{
+    Layout = "~/Views/Shared/_RegistrationLayout.cshtml";
+}
+
+<nav class="navbar">
+    <!-- Left side: Logo as a button -->
+    <div class="navbar-left">
+        <a href="@Url.Action("Index", "Home")" style="display: flex; align-items: center; padding: 0; margin: 0;">
+            <img src="~/Content/FINAL - PeraMinder Logo.png" alt="Logo">
+        </a>
+        <div class="nav-links-left">
+            <a href="@Url.Action("Index", "Home")" style="font-weight: 700 !important;">HOME</a>
+            <a href="@Url.Action("WhyUs", "Home")" style="font-weight: 700 !important;">WHY US</a>
+            <a href="@Url.Action("Features", "Home")" style="font-weight: 700 !important;">FEATURES</a>
+            <a href="@Url.Action("ContactPage", "Home")" style="font-weight: 700 !important;">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger-menu" ng-click="toggleMenu()">
+        <!-- Bind the click event -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</nav>
+
+<div class="registration-container">
+    <!-- Left Image Panel -->
+    <div class="image-container">
+        <img src="~/Content/RegisPic-FINAL.png" alt="Registration Image">
+        <p>Take control of your <em>pera</em>, <br />register with <em>PeraMinder</em> today!</p>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="form-container">
+        <div class="form-content-wrapper">
+            <h2>Create Account</h2>
+
+            <form>
+                <!-- First Name -->
+                <div class="input-field">
+                    <label for="firstName" class="required">First Name</label>
+                    <input id="firstName" type="text" ng-model="fName" required>
+                </div>
+
+                <!-- Surname -->
+                <div class="input-field">
+                    <label for="surname" class="required">Surname</label>
+                    <input id="surname" type="text" ng-model="lName" required>
+                </div>
+
+
+                <!-- Email -->
+                <div class="input-field">
+                    <label for="email" class="required">Email</label>
+                    <input id="email" type="email" ng-model="email" required>
+                </div>
+
+                <!-- Password Field -->
+                <div class="input-field">
+                    <label for="password" class="required">Password</label>
+                    <input id="password" type="password" ng-model="password" required>
+                    <i class="material-icons toggle-password"
+                       style="position: absolute; right: 3px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 19px; color: gray;"
+                       onclick="togglePasswordVisibility('password', this)">visibility</i>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="input-field">
+                    <label for="confirmPassword" class="required">Confirm Password</label>
+                    <input id="confirmPassword" type="password" required>
+                    <i class="material-icons toggle-password"
+                       style="position: absolute; right: 3px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 19px; color: gray;"
+                       onclick="togglePasswordVisibility('confirmPassword', this)">visibility</i>
+                </div>
+
+                <!-- Button Container -->
+                <div class="button-container">
+                    <button class="btn signup-btn" type="button" ng-click="submitFunc()">
+                        Sign Up
+                        <i class="material-icons right">send</i>
+                    </button>
+                  
+                </div>
+
+                <!-- Already have an account -->
+                <div class="sign-in-redirect">
+                    <p>
+                        Already have an account?
+                        <a href="@Url.Action("LoginPage", "Home")" class="sign-in-link">Sign In</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <div class="logo-container">
+        <img src="~/Content/FINAL_FOOT.png" alt="Logo" class="logo"> <!-- Replace with your actual logo -->
+    </div>
+    <div class="links-container">
+        <ul>
+            <li><a href="@Url.Action("Index", "Home")">HOME</a></li>
+            <li><a href="@Url.Action("WhyUs", "Home")">WHY US</a></li>
+            <li><a href="@Url.Action("Features", "Home")">FEATURES</a></li>
+            <li><a href="@Url.Action("ContactPage", "Home")">CONTACTS</a></li>
+        </ul>
+    </div>
+    <ul class="privacy-policy">
+        <li>Privacy Policy</li>
+        <li>Terms of Use</li>
+    </ul>
+    <div class="social-media-container">
+        <img src="~/Content/socialmedia.png" alt="Facebook">
+        <img src="~/Content/4.png" alt="Instagram">
+        <img src="~/Content/5.png" alt="Twitter">
+    </div>
+
+</footer>
+
+<div class="copyright" style="background-color: #F5D547; width: 100%; text-align: center; padding: 1px 0; font-size: 0.8rem; margin-top: -2px;">
+    <i><p>&copy; 2024 PeraMinder. All Rights Reserved.</p></i>
+</div>
+

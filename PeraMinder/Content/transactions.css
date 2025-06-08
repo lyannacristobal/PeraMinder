@@ -1,0 +1,210 @@
+﻿/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif !important;
+    margin: 0;
+    padding: 0;
+    color: #333 !important;
+    background-color: white !important;
+}
+
+.container {
+    max-width: 1200px; /* Increase the maximum width */
+    width: 100%; /* Ensure it spans the available space */
+}
+
+
+/* Financial Health Heading */
+.financial-health-heading {
+    font-size: 28px !important;
+    font-weight: bolder !important;
+    color: #333 !important;
+    margin-bottom: 30px !important;
+    text-align: left !important;
+}
+
+/* Button Styling */
+.btn {
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #F5D547 !important;
+    color: white !important;
+    border-radius: 25px !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1) !important;
+    text-decoration: none !important;
+}
+
+    /* Hover Effect for Buttons */
+    .btn:hover {
+        background-color: #d4b33b !important;
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2) !important;
+    }
+
+.btn-danger {
+    background-color: #A71D31 !important; /* Base color */
+    color: white !important;
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+    .btn-danger:hover {
+        background-color: #7F1525 !important; /* Darker shade on hover */
+        color: white !important;
+    }
+
+
+/* Financial Health Section */
+.financial-health {
+    margin-top: -20px !important;
+}
+
+    .financial-health .card {
+        padding: 5px !important;
+        border-radius: 15px !important;
+        background-color: white !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        text-align: center !important;
+        display: flex !important; /* Flex layout for card content */
+        flex-direction: column !important; /* Stack content vertically */
+        justify-content: center !important; /* Center content vertically */
+        align-items: center !important; /* Center content horizontally */
+    }
+
+    .financial-health .summary-label {
+        margin-top: -20px !important;
+        font-size: 16px !important;
+        color: #757575 !important;
+    }
+
+.card .material-icons {
+    margin-top: 15px !important;
+}
+
+.bold-text {
+    margin-top: 3px !important;
+    font-weight: bold !important;
+    font-size: 24px !important;
+    color: #264027 !important;
+}
+
+/* Summary Buttons */
+.summary-buttons {
+    margin-top: -10px !important;
+    text-align: center !important;
+}
+
+    .summary-buttons .summary-btn {
+        width:150px !important;
+        height: 30px !important;
+        background-color: #FFCA28 !important;
+        font-style: italic;
+        color: white !important;
+        font-weight: bold !important;
+        margin: 0 5px !important;
+        padding: 10px 20px !important;
+        text-transform: capitalize !important;
+        border-radius: 20px !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        transition: background-color 0.3s ease, color 0.3s ease !important;
+    }
+
+        .summary-buttons .summary-btn:hover {
+            background-color: #FFC107 !important;
+            color: white !important;
+        }
+
+/* Transactions Section */
+.transactions-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white; /* White background for the table section */
+    border-radius: 12px; /* Soft edges for the table container */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for the container */
+}
+
+.transactions-section h5 {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+    margin: 0 0 20px 0 !important;
+    text-align: left !important;
+}
+
+    .transactions-section .add-transaction-btn {
+        width: 205px !important;
+        height: 40px !important;
+        font-weight: bold !important;
+        border-radius: 10px !important;
+        text-transform: capitalize !important;
+        background-color: #FFCA28 !important;
+        color: white !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        transition: all 0.3s ease-in-out !important;
+    }
+
+    .transactions-section .button-container {
+        display: flex; /* Use flexbox for alignment */
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Add spacing between buttons */
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+.transactions-section .btn {
+    width: 100px; /* Make the buttons the same width */
+    height: 30px; /* Set a uniform height */
+    text-align: center; /* Center the text inside the buttons */
+    font-size: 14px; /* Set a consistent font size */
+    line-height: 1; /* Ensure proper vertical alignment */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Container styling */
+/* Container styling */
+.filter-container {
+    display: flex;
+    align-items: center; /* Center label and dropdown vertically */
+    justify-content: flex-start; /* Align content to the left */
+    margin-bottom: 20px; /* Space below the filter */
+    gap: 10px; /* Space between the label and the dropdown */
+    background-color: white !important; /* Light background for contrast */
+    padding: 10px 15px; /* Padding for spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px; /* Rounded edges */
+    flex-wrap: nowrap; /* Prevent wrapping of label and dropdown */
+}
+
+/* Label styling */
+.filter-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Dark grey text */
+    margin: 0;
+    padding: 0;
+    white-space: nowrap; /* Prevent the label from wrapping */
+}
+
+/* Dropdown styling */
+.filter-select {
+    width: 150px; /* Set a fixed width for the dropdown */
+    font-size: 16px;
+    color: #555; /* Medium grey text */
+    padding: 6px 10px; /* Adjust padding for smaller size */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 6px; /* Rounded edges */
+    background-color: white; /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for dropdown */
+    outline: none; /* Remove blue outline on focus */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+    /* Dropdown hover and focus effects */
+    .filter-select:hover,
+    .filter-select:focus {
+        border-color: #aaa; /* Darker grey on hover/focus */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover/focus */
+    }
+

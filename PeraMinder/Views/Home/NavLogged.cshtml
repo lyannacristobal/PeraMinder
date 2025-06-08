@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_NavLoggedIn.cshtml";
+}
+
+<div class="row">
+    <!-- Navbar for smaller screens -->
+    <nav class="hide-on-large-only">
+        <div class="nav-wrapper">
+            <!-- Burger menu on the left -->
+            <a href="#" data-target="mobile-sidebar" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+            <!-- Centered logo -->
+            <a href="@Url.Action("Dashboard", "Home")" class="brand-logo center">
+                <img src="/Content/peraminder_nav.png" alt="Logo" class="responsive-img nav-logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <ul class="sidenav sidenav-fixed" id="sidebar">
+        <!-- Logo -->
+        <a href="@Url.Action("Dashboard", "Home")" class="logo-link">
+            <div class="logo">
+                <img src="/Content/peraminder_nav.png" alt="Dashboard Logo">
+            </div>
+        </a>
+
+        <!-- Top links -->
+        <li><a href="@Url.Action("Dashboard", "Home")" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="@Url.Action("Transactions", "Home")" class="waves-effect"><i class="material-icons">sort</i>Transactions</a></li>
+        <li><a href="@Url.Action("Profile", "Home")" class="waves-effect"><i class="material-icons">person</i>Profile</a></li>
+
+        <!-- Bottom links -->
+        <li><a href="/Logout" class="waves-effect"><i class="material-icons">logout</i>Log out</a></li>
+    </ul>
+
+    <!-- Main Content -->
+    <div class="col s12 m9 offset-m3">
+        <div class="main-content">
+            <!-- Content goes here -->
+        </div>
+    </div>
+</div>

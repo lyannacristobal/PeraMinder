@@ -1,0 +1,230 @@
+﻿@{
+    Layout = "~/Views/Shared/_ManagementLayout.cshtml";
+}
+
+<div class="row">
+    <!-- Navbar for smaller screens -->
+    <nav class="hide-on-large-only">
+        <div class="nav-wrapper">
+            <!-- Burger menu on the left -->
+            <a href="#" data-target="mobile-sidebar" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+            <!-- Centered logo -->
+            <a href="@Url.Action("Dashboard", "Home")" class="brand-logo center">
+                <img src="/Content/peraminder_nav.png" alt="Logo" class="responsive-img nav-logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <ul class="sidenav sidenav-fixed" id="sidebar">
+        <!-- Logo -->
+        <a href="@Url.Action("Dashboard", "Home")" class="logo-link">
+            <div class="logo">
+                <img src="/Content/peraminder_nav.png" alt="Dashboard Logo">
+            </div>
+        </a>
+
+        <!-- Top links -->
+        <li>
+            <a href="@Url.Action("Dashboard", "Home")" class="waves-effect">
+                <img src="/Content/dashboard-icon.png" alt="Dashboard Icon" class="icon"> Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Transactions", "Home")" class="waves-effect">
+                <img src="/Content/transaction-icon.png" alt="Transactions Icon" class="icon"> Transactions
+            </a>
+        </li>
+
+        <!-- Bottom links -->
+        <li>
+            <a ng-href="" ng-click="logoutFunc()" class="waves-effect">
+                <img src="/Content/logout-icon.png" alt="Logout Icon" class="icon"> Log out
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <div class="container mt-4">
+        <!-- Financial Health Section -->
+        <h4 class="financial-health-heading">Financial Health</h4>
+        <div class="row financial-health">
+            <div class="col s4">
+                <div class="card center-align">
+                    <i class="material-icons large" style="color: #264027;">savings</i>
+                    <p class="bold-text">₱ {{ totalIncome | number:2 }}</p>
+                    <p class="summary-label">Total Income</p>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card center-align">
+                    <i class="material-icons large" style="color: #264027;">remove_circle_outline</i>
+                    <p class="bold-text">₱ {{ totalExpenses | number:2 }}</p>
+                    <p class="summary-label">Total Expense</p>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card center-align">
+                    <i class="material-icons large" style="color: #264027;">account_balance</i>
+                    <p class="bold-text">₱ {{ balance | number:2 }}</p>
+                    <p class="summary-label">Balance</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Summary Buttons -->
+        <div class="row summary-buttons">
+            <div class="col s12 center-align">
+                <button class="btn summary-btn" ng-click="getSummary('daily')">Daily</button>
+                <button class="btn summary-btn" ng-click="getSummary('weekly')">Weekly</button>
+                <button class="btn summary-btn" ng-click="getSummary('monthly')">Monthly</button>
+                <button class="btn summary-btn" ng-click="getSummary('yearly')">Yearly</button>
+            </div>
+        </div>
+
+        <!-- Transactions Section -->
+        <div class="transactions-section">
+            <div class="row">
+                <div class="col s6">
+                    <h5 class="section-title">Manage Transactions</h5>
+                </div>
+                <div class="col s6 right-align">
+                    <a class="waves-effect waves-light btn add-transaction-btn modal-trigger" href="#addTransactionModal">
+                        <i class="material-icons left">add</i> Add Transaction
+                    </a>
+                </div>
+            </div>
+            <div class="filter-container">
+                <label for="dateFilter" class="filter-label">Filter by:</label>
+                <select id="dateFilter" class="browser-default filter-select">
+                    <option value="all" selected>All</option>
+                    <option value="month">This Month</option>
+                    <option value="year">This Year</option>
+                    <option value="week">This Week</option>
+                </select>
+            </div>
+            <table id="transactionsTable" class="highlight">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Payment Method</th>
+                        <th>Transaction Type</th>
+                        <th>Amount</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transaction in transactions">
+                        <td><b>{{ transaction.transactionDate }}</b></td>
+                        <td>{{ transaction.autoCategoryType }}</td>
+                        <td>{{ transaction.autoPaymentMethodName }}</td>
+                        <td>{{ transaction.autoTransactionTypeName }}</td>
+                        <td>₱ {{ transaction.amount }}</td>
+                        <td>{{ transaction.notes }}</td>
+                        <td>
+                            <div class="button-container">
+                                <button class="btn btn-primary btn-sm" ng-click="editTransaction(transaction.transactionID)">Edit</button>
+                                <button class="btn btn-danger btn-sm" ng-click="deleteTransaction(transaction.transactionID)">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="addTransactionModal" class="modal">
+            <div class="modal-content">
+                <h4 class="center-align">Add Transaction</h4>
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="date" id="transactionDate" ng-model="newTransaction.date" class="circular-input" required>
+                            <label for="transactionDate" class="active">Date</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="number" id="transactionAmount" ng-model="newTransaction.amount" class="circular-input" required>
+                            <label for="transactionAmount" class="active">Amount</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="transactionType" ng-model="newTransaction.transactionTypeID" class="circular-input" ng-options="type.transactionTypeID as type.transactionTypeName.trim() for type in transactionTypes">
+                                <option value="" disabled selected>Select Transaction Type</option>
+                            </select>
+                            <label for="transactionType">Transaction Type</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="transactionCategory" ng-model="newTransaction.categoryID" class="circular-input" ng-options="category.categoryID as category.categoryName for category in filteredCategories" required>
+                                <option value="" disabled selected>Select Category</option>
+                            </select>
+                            <label for="transactionCategory">Category</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="transactionPaymentMethod" ng-model="newTransaction.paymentMethodID" class="circular-input" ng-options="method.paymentMethodID as method.paymentMethodName.trim() for method in paymentMethods">
+                                <option value="" disabled selected>Select Payment Method</option>
+                            </select>
+                            <label for="transactionPaymentMethod">Payment Method</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea id="transactionNotes" ng-model="newTransaction.notes" class="materialize-textarea circular-textarea" required></textarea>
+                            <label for="transactionNotes" class="active">Notes</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="waves-effect waves-light btn" ng-click="addTransaction()">Save</a>
+                <a href="#" class="modal-close waves-effect btn custom-cancel-btn">Cancel</a>
+            </div>
+        </div>
+
+
+        <!-- Edit Transaction Modal -->
+        <div id="editTransactionModal" class="modal">
+            <div class="modal-content">
+                <h4 class="center-align">Edit Transaction</h4>
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="date" id="editTransactionDate" ng-model="editTransactionData.transactionDate" class="circular-input" required>
+                            <label for="editTransactionDate">Date</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="number" id="editTransactionAmount" ng-model="editTransactionData.amount" class="circular-input" required>
+                            <label for="editTransactionAmount">Amount</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="editTransactionType" ng-model="editTransactionData.transactionTypeID" class="circular-input" ng-options="type.transactionTypeID as type.transactionTypeName.trim() for type in transactionTypes">
+                                <option value="" disabled>Select Transaction Type</option>
+                            </select>
+                            <label for="editTransactionType">Transaction Type</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="editTransactionCategory" ng-model="editTransactionData.categoryID" class="circular-input" ng-options="category.categoryID as category.categoryName for category in filteredCategories">
+                                <option value="" disabled>Select Category</option>
+                            </select>
+                            <label for="editTransactionCategory">Category</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select id="editTransactionPaymentMethod" ng-model="editTransactionData.paymentMethodID" class="circular-input" ng-options="method.paymentMethodID as method.paymentMethodName.trim() for method in paymentMethods">
+                                <option value="" disabled>Select Payment Method</option>
+                            </select>
+                            <label for="editTransactionPaymentMethod">Payment Method</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea id="editTransactionNotes" ng-model="editTransactionData.notes" class="materialize-textarea circular-textarea"></textarea>
+                            <label for="editTransactionNotes">Notes</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="waves-effect waves-light btn" ng-click="updateTransaction()">Save</a>
+                <a href="#" class="modal-close waves-effect btn custom-cancel-btn">Cancel</a>
+            </div>
+        </div>
+
+    </div>
+</div>
